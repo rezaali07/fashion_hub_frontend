@@ -88,7 +88,7 @@ strong{
   cursor: pointer;
 }
 strong:hover{
-  color: tomato;
+  color: #FF6600;
 }
 h6{
   font-weight: 600;
@@ -124,7 +124,7 @@ h3{
   transition: .4s all ease;
 }
 h3:hover{
-  color: tomato;
+  color: #FF6600;
   cursor: pointer;
 }
 .pz__15{
@@ -188,7 +188,7 @@ label.MuiRating-label {
   height: unset;
 }
 .MuiRating-root{
-  color: tomato!important;
+  color: #FF6600!important;
 }
 .MuiRating-root{
   font-size: 1.2rem!important;
