@@ -18,6 +18,33 @@ import EditProduct from "./component/Admin/EditProduct";
 import UpdateOrder from "./component/Admin/UpdateOrder";
 import UpdateUser from "./component/Admin/UpdateUser";
 import LoginSign from "./component/Authentication/LoginSign";
+import Cart from "./component/cart/Cart";
+import ConfirmOrder from "./component/cart/ConfirmOrder";
+import Favourite from "./component/cart/Favourites";
+import Payment from "./component/cart/Payment";
+import Shipping from "./component/cart/Shipping";
+import Success from "./component/cart/Success";
+import Home from "./component/Home/Home";
+import productDetails from "./component/Products/ProductDetails";
+import Products from "./component/Products/products";
+import Search from "./component/Products/Search";
+import EditProfile from "./component/user/EditProfile";
+import ForgotPassword from "./component/user/ForgotPassword";
+import MoreOption from "./component/user/MoreOption";
+import MyOrder from "./component/user/MyOrder";
+import MyOrderDetails from "./component/user/MyOrderDetails";
+import Profile from "./component/user/Profile";
+import ResetPassword from "./component/user/ResetPassword";
+import UpdatePassword from "./component/user/UpdatePassword";
+import CommingSoon from "./more/CommingSoon";
+import Contact from "./more/Contact";
+import Loading from "./more/Loader";
+import Notfound from "./more/Notfound";
+import Rules from "./more/Rules";
+import Support from "./more/Support";
+import UserData from "./more/UserData";
+import ProtectedRoute from "./route/ProtectedRoute";
+import Store from "./Store";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -50,10 +77,28 @@ function App() {
         </Elements>
       )}
       <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/product/:id" component={productDetails} />
         <Route exact path="/load" component={Loading} />
         <Route exact path="/login" component={LoginSign} />
         <Route exact path="/about" component={About} />
-        
+        <Route exact path="/products" component={Products} />
+        <Route exact path="/search" component={Search} />
+        <Route exact path="/products/:keyword" component={Products} />
+        <Route exact path="/support" component={Support} />
+        <Route exact path="/cart" component={Cart} />
+        <Route exact path="/favourites" component={Favourite} />
+        <Route exact path="/more" component={MoreOption} />
+        <Route exact path="/contact" component={Contact} />
+        <Route exact path="/faq" component={Rules} />
+        <Route exact path="/creator" component={CommingSoon} />
+        <ProtectedRoute exact path="/shipping" component={Shipping} />
+        <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
+        <ProtectedRoute exact path="/success" component={Success} />
+        <Route exact path="/password/forgot" component={ForgotPassword} />
+        <Route exact path="/password/reset/:token" component={ResetPassword} />
+        <ProtectedRoute exact path="/me" component={Profile} />
+        <ProtectedRoute exact path="/me/update" component={UpdatePassword} />
         <ProtectedRoute
           exact
           path="/me/update/profile"
