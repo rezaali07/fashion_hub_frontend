@@ -35,7 +35,18 @@ export const cartReducer = (
       }
     }
 
-    
+    case REMOVE_CART_ITEM:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter((i) => i.product !== action.payload),
+      };
+
+    case SAVE_SHIPPING_INFO:
+      return {
+        ...state,
+        shippingInfo: action.payload,
+      };
+
     case CLEAR_CART:
       return {
         ...state,
@@ -47,4 +58,3 @@ export const cartReducer = (
       return state;
   }
 };
-
