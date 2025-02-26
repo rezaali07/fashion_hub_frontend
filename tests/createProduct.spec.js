@@ -38,7 +38,27 @@ test.describe('Create Product Tests', () => {
     expect(descriptionValue).toBe('This is a test product description.');
   });
 
-  
+  test('User can upload and preview images', async ({ page }) => {
+    await page.goto(`${BASE_URL}/admin/product`);
+    await page.fill('input[placeholder="Product Name"]', 'Test Product');
+    await page.fill('input[placeholder="Price"]', '99');
+    await page.fill('textarea[placeholder="Description"]', 'This is a test product description.');
+
+    const imagePath = path.resolve(__dirname, '../src/Assets/background.jpg');
+    const fileInput = page.locator('input[type="file"]');
+    await fileInput.setInputFiles(imagePath);
+
+    const previewImage = page.locator('#createProductFormImage img');
+    await expect(previewImage).toBeVisible();
+  });
+
+  test('User can select a category from the dropdown', async ({ page }) => {
+    await page.goto(`${BASE_URL}/admin/product`);
+    const categorySelect = page.locator('select');
+    await categorySelect.selectOption({ index: 1 });
+    const selectedCategory = await categorySelect.inputValue();
+    expect(selectedCategory).toBe('Denim');
+  });
 
   test('User can create a product', async ({ page }) => {
     await page.goto(`${BASE_URL}/admin/product`);
