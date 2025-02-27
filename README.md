@@ -16,7 +16,8 @@ To get started with the project, follow these steps:
 Install Dependencies:
 
 npm install
-Start the Application:
+Start the Application: npm start
+Run all the test: npx playwright test
 
-npm start
 With FashionHub, businesses can effectively showcase their products, manage inventory, process orders, and provide a seamless shopping experience to their customers.
+
